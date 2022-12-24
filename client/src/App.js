@@ -1,8 +1,9 @@
-import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import About from "./components/About";
 import Login from "./components/Login";
+import AddNewDate from "./components/AddNewDate";
 import "./App.css";
 import Signup from "./components/Signup";
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/newDate" element={<AddNewDate />} />
         </Routes>
       </BrowserRouter>
     </div>

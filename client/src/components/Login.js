@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Login() {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  const changed = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+  const submitted = (e) => {
+    e.preventDefault();
+    console.log(data);
+  };
   return (
     <div className="form">
-      <form action="">
+      <form onSubmit={submitted}>
         <input
           type="email"
           name="email"
           placeholder="Email id"
           className="form-control"
+          onChange={changed}
+          value={data.email}
         />
         <br />
         <input
@@ -16,6 +29,8 @@ export default function Login() {
           name="password"
           placeholder="password"
           className="form-control"
+          onChange={changed}
+          value={data.password}
         />
         <br />
         <div className="d-grid gap-2">

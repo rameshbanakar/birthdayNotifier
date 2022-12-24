@@ -32,7 +32,7 @@ export default function NavBar() {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="/newDate">
                   Add New BirthDay
                 </a>
               </li>

@@ -12,7 +12,7 @@
   overflow: auto;
   box-shadow: 5px 5px 10px;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .from p {
@@ -23,4 +23,7 @@
   .form {
     width: 70%;
   }
+}
+.radiobtn{
+  margin:2px;
 }

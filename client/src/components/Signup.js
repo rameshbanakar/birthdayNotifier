@@ -12,7 +12,8 @@ export default function Signup() {
      
       setData({...data,[e.target.name]:e.target.value})
     }
-    const submitted=()=>{
+    const submitted=(e)=>{
+        e.preventDefault();
         console.log(data)
     }
   return (
