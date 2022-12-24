@@ -1,0 +1,26 @@
+.aboutstyle {
+  margin: 60px 30px;
+  font-size: medium;
+}
+
+.form {
+  border-radius: 5px;
+  width: 40%;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10%;
+  overflow: auto;
+  box-shadow: 5px 5px 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.from p {
+  color: red
+}
+
+@media only screen and (max-width: 600px) {
+  .form {
+    width: 70%;
+  }
+}
