@@ -4,15 +4,16 @@
 }
 
 .form {
-  border-radius: 5px;
+  border-radius: 8px;
   width: 40%;
   padding: 20px;
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   overflow: auto;
   box-shadow: 5px 5px 10px;
   padding-top: 30px;
   padding-bottom: 10px;
+  
 }
 
 .from p {

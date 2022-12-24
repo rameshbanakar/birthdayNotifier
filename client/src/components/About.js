@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="aboutstyle">
       <p>
-        This is a BirthDay notifier Aplication here you need to add your
+        This is a BirthDay notifier Application here you need to add your
         friends,family,realtives birthday dates,application will finds all of
         your friend's birthdays and wraps them up into a magical, easily
         accessible, calendar without you having to manually input a single date.

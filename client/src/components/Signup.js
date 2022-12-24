@@ -37,7 +37,7 @@ export default function Signup() {
           onChange={changed}
         />
         <br />
-        <label htmlFor="DOB">Date of Birth</label>
+        <label htmlFor="DOB">Date of Birth:-</label>
         <input
           type="date"
           name="DOB"
