@@ -1,22 +1,32 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addBirthday } from "../redux/Action";
 
 export default function AddNewDate() {
+  const dispatch = useDispatch();
+  const birthDate = useSelector((state) => state.birthDate);
+
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
     DOB: "",
     email: "",
     phone: "",
-    relation:null,
+    relation: null,
   });
   const changed = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   const submitted = (e) => {
     e.preventDefault();
-    console.log(data);
+
+    dispatch(addBirthday(data));
   };
-  const cancel=()=>{
+  useEffect(() => {
+    console.log(birthDate);
+  }, [birthDate]);
+  const cancel = () => {
     setData({
       firstName: "",
       lastName: "",
@@ -25,7 +35,7 @@ export default function AddNewDate() {
       phone: "",
       relation: null,
     });
-  }
+  };
   return (
     <div className="form">
       <form onSubmit={submitted}>
@@ -115,7 +125,7 @@ export default function AddNewDate() {
             Add BirthDay
           </button>
           <button className="btn btn-danger" onClick={cancel}>
-           Cancel
+            Cancel
           </button>
         </div>
         <br />

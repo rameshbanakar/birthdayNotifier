@@ -6,6 +6,8 @@ import Login from "./components/Login";
 import AddNewDate from "./components/AddNewDate";
 import "./App.css";
 import Signup from "./components/Signup";
+import { Provider } from "react-redux";
+import Store from "./redux/Store"
 function App() {
   const mystyle = {
     backgroundImage:
@@ -16,18 +18,20 @@ function App() {
     backgrounfPosition: "fixed",
   };
   return (
-    <div style={mystyle}>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/newDate" element={<AddNewDate />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Provider store={Store}>
+        <div style={mystyle}>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/newDate" element={<AddNewDate />} />
+          </Routes>
+        </div>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
