@@ -1,11 +1,20 @@
 import React from "react";
-
+import { logout } from "../redux/actions/AuthAction";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 export default function NavBar() {
+  const isAuthenticated=useSelector(state=>state.auth.isAuthenticated)
+  console.log(isAuthenticated)
+  const dispatch=useDispatch()
+  const logoutuser=(e)=>{
+    e.preventDefault()
+      dispatch(logout())
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             <img
               src="https://media.istockphoto.com/id/1311461815/vector/illustration-vector-graphic-design-asset-of-cream-cake-suitable-for-multipurpose-content.jpg?s=612x612&w=0&k=20&c=JeNpdxUftEdYWWjPRiqUCWxYQs10Y8ulLy03RFNFdIE="
               alt="Logo"
@@ -14,7 +23,7 @@ export default function NavBar() {
               className="d-inline-block align-text-top"
             />
             BirthDay Notifier
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -32,56 +41,65 @@ export default function NavBar() {
           >
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/newDate">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/newDate"
+                >
                   Add New BirthDay
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  to="#"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Choose
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Friends
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Family
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Relatives
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <Link className="dropdown-item" to="#">
                       Others
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
             </ul>
           </div>
         </div>
-
-        <a className="nav-link" href="/login">
-          Login
-        </a>
+        {isAuthenticated ? (
+          <Link className="nav-link" to="#" onClick={logoutuser}>
+            Logout
+          </Link>
+        ) : (
+          <Link className="nav-link" to="/login">
+            Login
+          </Link>
+        )}
       </nav>
     </>
   );

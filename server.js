@@ -10,4 +10,9 @@ app
     // console.log(req.body)
     res.send("ikdjbkurwguiwvjksdvuhruwgrgvuisg");
   })
+app
+  .post("/api/auth/login", (req, res) => {
+    // console.log(req.body)
+    res.send("ikdjbkurwguiwvjksdvuhruwgrgvuisg");
+  })
   .listen(5000, () => console.log("server started@localhost 5000"));

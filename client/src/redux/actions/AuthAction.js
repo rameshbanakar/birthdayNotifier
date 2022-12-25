@@ -21,6 +21,14 @@ export const login = (data) => async (dispatch) => {
     //console.log(error);
   }
 };
+export const logout = () => async (dispatch) => {
+  //console.log(data);
+    dispatch({
+      type: "LOG_OUT",
+    });
+  
+  
+};
 export const signup = (data) => async (dispatch) => {
   //console.log(data);
   try {

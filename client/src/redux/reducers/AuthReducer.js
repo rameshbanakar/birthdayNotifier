@@ -13,6 +13,7 @@ const Reducer = (state = initialState, action) => {
       localStorage.setItem("token", action.payload);
       return {
         ...state,
+        ...action.payload,
         isAuthenticated: true,
         loading: false,
       };
@@ -20,14 +21,17 @@ const Reducer = (state = initialState, action) => {
       localStorage.setItem("token", action.payload);
       return {
         ...state,
+        ...action.payload,
         isAuthenticated: true,
         loading: false,
       };
       case "LOGIN_FAIL":
       case "SIGN_UP_FAIL":
+      case "LOG_OUT":
         localStorage.removeItem("token")
         return{
           ...state,
+          token:null,
           isAuthenticated:false,
           loading:false,
           error:action.payload
