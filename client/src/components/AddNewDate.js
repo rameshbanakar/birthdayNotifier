@@ -1,12 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBirthday } from "../redux/Action";
+import { addBirthday } from "../redux/actions/BirthDateAction";
 
 export default function AddNewDate() {
   const dispatch = useDispatch();
-  const birthDate = useSelector((state) => state.birthDate);
-
+  const birthDate = useSelector((state) => state.birthdate.birthDate);
   const [data, setData] = useState({
     firstName: "",
     lastName: "",
