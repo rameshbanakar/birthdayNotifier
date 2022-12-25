@@ -6,8 +6,8 @@ app.post("/", (req, res) => {
   res.send(req.body);
 });
 app
-  .post("/api/auth", (req, res) => {
+  .post("/api/auth/signup", (req, res) => {
     // console.log(req.body)
-    res.send("kdjbkurwguiwvjksdvuhruwgrgvuisg");
+    res.send("ikdjbkurwguiwvjksdvuhruwgrgvuisg");
   })
   .listen(5000, () => console.log("server started@localhost 5000"));

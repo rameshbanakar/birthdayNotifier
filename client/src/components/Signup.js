@@ -1,6 +1,8 @@
 import React,{useState} from "react";
-
+import { useDispatch } from "react-redux";
+import { signup } from "../redux/actions/AuthAction";
 export default function Signup() {
+  const dispatch = useDispatch();
     const [data, setData] = useState({
       firstName: "",
       lastName: "",
@@ -15,6 +17,7 @@ export default function Signup() {
     const submitted=(e)=>{
         e.preventDefault();
         console.log(data)
+        dispatch(signup(data))
     }
   return (
     <div className="form">
