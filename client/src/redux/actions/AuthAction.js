@@ -8,7 +8,7 @@ export const login = (data) => async (dispatch) => {
       },
     };
     const res = await axios.post("/api/auth/login", data, config);
-    //console.log(res)
+    console.log(res)
     dispatch({
       type: "LOG_IN",
       payload: res.data,
@@ -26,8 +26,6 @@ export const logout = () => async (dispatch) => {
     dispatch({
       type: "LOG_OUT",
     });
-  
-  
 };
 export const signup = (data) => async (dispatch) => {
   //console.log(data);

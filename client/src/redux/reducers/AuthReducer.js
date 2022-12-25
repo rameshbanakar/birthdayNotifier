@@ -39,7 +39,7 @@ const Reducer = (state = initialState, action) => {
 
     default: {
       return {
-        ...state,
+        state,
       };
     }
   }
