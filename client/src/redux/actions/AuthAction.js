@@ -1,4 +1,5 @@
 import axios from "axios";
+import  {setAlert}  from "./alertAction";
 export const login = (data) => async (dispatch) => {
   //console.log(data);
   try {
@@ -36,7 +37,7 @@ export const signup = (data) => async (dispatch) => {
       },
     };
     const res = await axios.post("/api/auth/signup", data, config);
-    //console.log(res)
+    console.log(res)
     dispatch({
       type: "SIGN_UP",
       payload: res.data,
@@ -44,8 +45,13 @@ export const signup = (data) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: "SIGN_UP_FAIL",
-      payload:error
+      payload:error.response.data
     });
-    //console.log(error);
+    let type;
+    if (error.response.status===409){
+      type="danger"
+    } 
+    dispatch(setAlert(error.response.data,type));
+    
   }
 };
