@@ -3,8 +3,8 @@ import { logout } from "../redux/actions/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 export default function NavBar() {
-  const isAuthenticated=useSelector(state=>state.auth.isAuthenticated)
-  console.log(isAuthenticated)
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  //console.log(isAuthenticated,":- from nav bar state of autentication")
   const dispatch=useDispatch()
   const logoutuser=(e)=>{
     e.preventDefault()

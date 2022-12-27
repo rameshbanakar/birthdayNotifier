@@ -9,7 +9,7 @@ export const login = (data) => async (dispatch) => {
       },
     };
     const res = await axios.post("/api/auth/login", data, config);
-    console.log(res)
+    //console.log(res)
     dispatch({
       type: "LOG_IN",
       payload: res.data,
@@ -37,11 +37,15 @@ export const signup = (data) => async (dispatch) => {
       },
     };
     const res = await axios.post("/api/auth/signup", data, config);
-    console.log(res)
+    //console.log(res)
+    //dispatch(setAlert("User Register Successfully", "green"))
     dispatch({
-      type: "SIGN_UP",
-      payload: res.data,
-    });
+          type: "SIGN_UP",
+          payload: res.data,
+        })
+    
+    //alert("user register success", type);
+   // dispatch(setAlert("User Register Successfully", "green"));
   } catch (error) {
     dispatch({
       type: "SIGN_UP_FAIL",
@@ -49,8 +53,9 @@ export const signup = (data) => async (dispatch) => {
     });
     let type;
     if (error.response.status===409){
-      type="danger"
+      type="red"
     } 
+  
     dispatch(setAlert(error.response.data,type));
     
   }

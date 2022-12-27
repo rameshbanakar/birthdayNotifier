@@ -1,6 +1,6 @@
 
 export const setAlert = (msg,type) => async (dispatch) => {
-  console.log("set alert method");
+  //console.log("set alert method");
   
   dispatch({
     type: "SET_ALERT",

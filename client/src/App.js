@@ -7,6 +7,7 @@ import AddNewDate from "./components/AddNewDate";
 import "./App.css";
 import Signup from "./components/Signup";
 import { useSelector,} from "react-redux";
+import Alert from "./components/Alert";
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const mystyle = {
@@ -21,6 +22,7 @@ function App() {
     <BrowserRouter>
       <div style={mystyle}>
         <NavBar />
+        <Alert />
         <Routes>
           <Route
             path="/"
@@ -33,14 +35,28 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/newDate" element={!isAuthenticated ? (
+          <Route
+            path="/login"
+            element={
+              isAuthenticated ? <Navigate to="/" replace={true} /> : <Login />
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              isAuthenticated ? <Navigate to="/" replace={true} /> : <Signup />
+            }
+          />
+          <Route
+            path="/newDate"
+            element={
+              !isAuthenticated ? (
                 <Navigate to="/login" replace={true} />
               ) : (
                 <AddNewDate />
               )
-            } />
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

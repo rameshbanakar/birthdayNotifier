@@ -6,8 +6,8 @@ const initialState = {
   error:null
 };
 const Reducer = (state = initialState, action) => {
-  console.log(action.type);
-  console.log(action.payload);
+  //console.log(action.type);
+  //console.log(action.payload);
   switch (action.type) {
     case "LOG_IN":
       localStorage.setItem("token", action.payload);
@@ -21,7 +21,7 @@ const Reducer = (state = initialState, action) => {
       localStorage.setItem("token", action.payload);
       return {
         ...state,
-        ...action.payload,
+        
         isAuthenticated: true,
         loading: false,
       };
@@ -39,7 +39,7 @@ const Reducer = (state = initialState, action) => {
 
     default: {
       return {
-        state,
+        ...state,
       };
     }
   }
