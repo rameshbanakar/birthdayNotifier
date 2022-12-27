@@ -12,7 +12,7 @@ export default function Login() {
   };
   const submitted = (e) => {
     e.preventDefault();
-    //console.log(data);
+    console.log(data);
     dispatch(login(data));
   };
   return (

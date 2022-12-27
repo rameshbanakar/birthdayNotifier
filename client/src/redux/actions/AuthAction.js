@@ -14,11 +14,15 @@ export const login = (data) => async (dispatch) => {
       type: "LOG_IN",
       payload: res.data,
     });
+    dispatch(setAlert("user logged in successfully","green"))
   } catch (error) {
     dispatch({
       type: "LOGIN_FAIL",
       payload:error
     });
+    
+
+    dispatch(setAlert(error.response.data, "red"));
     //console.log(error);
   }
 };
@@ -44,19 +48,21 @@ export const signup = (data) => async (dispatch) => {
           payload: res.data,
         })
     
-    //alert("user register success", type);
-   // dispatch(setAlert("User Register Successfully", "green"));
+    dispatch(setAlert("User Signedup successfully", "green"));
   } catch (error) {
     dispatch({
       type: "SIGN_UP_FAIL",
       payload:error.response.data
     });
-    let type;
-    if (error.response.status===409){
-      type="red"
-    } 
-  
-    dispatch(setAlert(error.response.data,type));
     
+    if (error.response.status===409){
+       dispatch(setAlert(error.response.data, "red"));
+    } else if(error.response.status===500){
+         dispatch(setAlert("server not responding", "orange"));
+    }else{
+       dispatch(setAlert(error.response.data, "yello"));
+    }
+  
+   
   }
 };
