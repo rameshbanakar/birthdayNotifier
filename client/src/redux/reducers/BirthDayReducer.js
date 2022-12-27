@@ -1,8 +1,25 @@
 const initialState = {
-  birthDateFamily: [],
-  birthDateFriends:[],
-  birthDateRelatives:[],
-  birthDateOthers:[]
+  birthDateFamily: [
+    {
+      DOB: "2022-12-08",
+      email: "rameshbanakar821@gmail.com",
+      firstName: "Ramesh ",
+      lastName: "Banakar ",
+      phone: "7760345520",
+      relation: "Family Member",
+    },
+    {
+      DOB: "2022-12-08",
+      email: "rameshbanakar821@gmail.com",
+      firstName: "veeresh ",
+      lastName: "Banakar ",
+      phone: "7760345520",
+      relation: "Family Member",
+    },
+  ],
+  birthDateFriends: [{ firstName: "ramesh" }, { firstName: "ramesh" }],
+  birthDateRelatives: [],
+  birthDateOthers: [],
 };
 const Reducer = (state = initialState, action) => {
   //console.log(action.type)

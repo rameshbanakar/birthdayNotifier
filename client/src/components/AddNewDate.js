@@ -22,6 +22,7 @@ export default function AddNewDate() {
     if(data.relation==null){
        dispatch(setAlert("select the type of relation","yellow"));
     }else{
+      console.log(data)
       dispatch(addBirthday(data));
     }
     
