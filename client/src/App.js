@@ -8,6 +8,10 @@ import "./App.css";
 import Signup from "./components/Signup";
 import { useSelector,} from "react-redux";
 import Alert from "./components/Alert";
+import Friends from "./components/Friends";
+import Family from "./components/Family";
+import Relatives from "./components/Relatives";
+import Others from "./components/Others";
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const mystyle = {
@@ -54,6 +58,46 @@ function App() {
                 <Navigate to="/login" replace={true} />
               ) : (
                 <AddNewDate />
+              )
+            }
+          />
+          <Route
+            path="/friends"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/login" replace={true} />
+              ) : (
+                <Friends />
+              )
+            }
+          />
+          <Route
+            path="/family"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/login" replace={true} />
+              ) : (
+                <Family />
+              )
+            }
+          />
+          <Route
+            path="/relatives"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/login" replace={true} />
+              ) : (
+                <Relatives />
+              )
+            }
+          />
+          <Route
+            path="/others"
+            element={
+              !isAuthenticated ? (
+                <Navigate to="/login" replace={true} />
+              ) : (
+                <Others />
               )
             }
           />

@@ -25,6 +25,7 @@ export default function Login() {
           className="form-control"
           onChange={changed}
           value={data.email}
+          required
         />
         <br />
         <input
@@ -34,6 +35,7 @@ export default function Login() {
           className="form-control"
           onChange={changed}
           value={data.password}
+          required
         />
         <br />
         <div className="d-grid gap-2">

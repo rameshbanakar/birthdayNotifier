@@ -1,3 +1,4 @@
 exports.addBd = (req, res) => {
-  res.send("hello login");
+  res.send(req.body);
+  //console.log(req.body)
 };

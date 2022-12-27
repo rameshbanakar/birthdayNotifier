@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBirthday } from "../redux/actions/BirthDateAction";
-
+import { setAlert } from "../redux/actions/alertAction";
 export default function AddNewDate() {
   const dispatch = useDispatch();
   const birthDate = useSelector((state) => state.birthdate.birthDate);
@@ -19,8 +19,12 @@ export default function AddNewDate() {
   };
   const submitted = (e) => {
     e.preventDefault();
-
-    dispatch(addBirthday(data));
+    if(data.relation==null){
+       dispatch(setAlert("select the type of relation","yellow"));
+    }else{
+      dispatch(addBirthday(data));
+    }
+    
   };
   useEffect(() => {
     console.log(birthDate);
@@ -45,6 +49,7 @@ export default function AddNewDate() {
           placeholder="First Name"
           value={data.firstName}
           onChange={changed}
+          required
         />
         <br />
         <input
