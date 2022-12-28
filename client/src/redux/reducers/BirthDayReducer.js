@@ -1,23 +1,6 @@
 const initialState = {
-  birthDateFamily: [
-    {
-      DOB: "2022-12-08",
-      email: "rameshbanakar821@gmail.com",
-      firstName: "Ramesh ",
-      lastName: "Banakar ",
-      phone: "7760345520",
-      relation: "Family Member",
-    },
-    {
-      DOB: "2022-12-08",
-      email: "rameshbanakar821@gmail.com",
-      firstName: "veeresh ",
-      lastName: "Banakar ",
-      phone: "7760345520",
-      relation: "Family Member",
-    },
-  ],
-  birthDateFriends: [{ firstName: "ramesh" }, { firstName: "ramesh" }],
+  birthDateFamily: [],
+  birthDateFriends: [],
   birthDateRelatives: [],
   birthDateOthers: [],
 };
@@ -43,6 +26,26 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         birthDateOthers: [...state.birthDateOthers, action.payload],
+      };
+    case "FETCH_BIRTH_DATE_OTHERS":
+      return {
+        ...state,
+        birthDateOthers: action.payload,
+      };
+    case "FETCH_BIRTH_DATE_RELATIVES":
+      return {
+        ...state,
+        birthDateRelatives: action.payload,
+      };
+    case "FETCH_BIRTH_DATE_FRIENDS":
+      return {
+        ...state,
+        birthDateFriends: action.payload,
+      };
+    case "FETCH_BIRTH_DATE_FAMILY":
+      return {
+        ...state,
+        birthDateFamily: action.payload,
       };
 
     default: {

@@ -24,6 +24,10 @@ export const login = (data) => async (dispatch) => {
       type: "LOGIN_FAIL",
       payload:error
     });
+    if(error.response.status===500){
+       dispatch(setAlert(error.response.statusText, "orange"));
+    }
+     
     console.log(error);
   
 
