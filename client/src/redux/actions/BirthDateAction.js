@@ -1,4 +1,5 @@
 import axios from "axios"
+import { setAlert } from "./alertAction";
 export const addBirthday=(data)=>async dispatch=>{
   //console.log(data,"from action")
   try {
@@ -31,10 +32,11 @@ export const addBirthday=(data)=>async dispatch=>{
       });
     }
       
-    
+    dispatch(setAlert(res.data,"green"))
       
   } catch (error) {
     console.log(error)
+    dispatch(setAlert(error.response.data, "red"));
   }
     
 }

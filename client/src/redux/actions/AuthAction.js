@@ -1,5 +1,8 @@
 import axios from "axios";
 import  {setAlert}  from "./alertAction";
+import  setAuthToken  from "../../utils/setAuthToken";
+
+
 export const login = (data) => async (dispatch) => {
   //console.log(data);
   try {
@@ -9,21 +12,23 @@ export const login = (data) => async (dispatch) => {
       },
     };
     const res = await axios.post("/api/auth/login", data, config);
-    //console.log(res)
+    console.log(res)
     dispatch({
       type: "LOG_IN",
       payload: res.data,
     });
+     setAuthToken(res.data);
     dispatch(setAlert("user logged in successfully","green"))
   } catch (error) {
     dispatch({
       type: "LOGIN_FAIL",
       payload:error
     });
-    
+    console.log(error);
+  
 
-    dispatch(setAlert(error.response.data, "red"));
-    //console.log(error);
+  //   dispatch(setAlert(error.response.data, "red"));
+  //   console.log(error);
   }
 };
 export const logout = () => async (dispatch) => {
@@ -47,7 +52,8 @@ export const signup = (data) => async (dispatch) => {
           type: "SIGN_UP",
           payload: res.data,
         })
-    
+    setAuthToken(res.data);
+    //loadUser(res.data);
     dispatch(setAlert("User Signedup successfully", "green"));
   } catch (error) {
     dispatch({

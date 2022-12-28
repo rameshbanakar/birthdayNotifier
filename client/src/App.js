@@ -12,6 +12,10 @@ import Friends from "./components/Friends";
 import Family from "./components/Family";
 import Relatives from "./components/Relatives";
 import Others from "./components/Others";
+import setAuthToken from "./utils/setAuthToken"
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const mystyle = {
