@@ -18,17 +18,18 @@ if (localStorage.token) {
 }
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const mystyle = {
-    backgroundImage:
-      'url("https://i.pinimg.com/originals/04/70/cd/0470cd41a688f9c7ffeb41b76e5c8541.jpg")',
-    backgroundRepeat: "no-repeat",
-    height: "100vh",
-    backgroundSize: "cover",
-    backgrounfPosition: "fixed",
-  };
+  // const mystyle = {
+  //   backgroundImage:
+  //     'url("https://i.pinimg.com/originals/04/70/cd/0470cd41a688f9c7ffeb41b76e5c8541.jpg")',
+    
+  //   height: "100vh",
+  //   backgroundSize:"cover",
+  //   backgrounfPosition: "fixed",
+    
+  // };
   return (
     <BrowserRouter>
-      <div style={mystyle}>
+      <div className="mystyle">
         <NavBar />
         <Alert />
         <Routes>

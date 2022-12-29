@@ -2,7 +2,12 @@
   margin: 60px 30px;
   font-size: medium;
 }
-
+.mystyle{
+  background-image: url("https://i.pinimg.com/originals/04/70/cd/0470cd41a688f9c7ffeb41b76e5c8541.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+  height: 100vh;
+}
 .form {
   border-radius: 8px;
   width: 40%;
@@ -24,7 +29,16 @@
   .form {
     width: 70%;
   }
+  .card{
+    width:85% !important;
+  }
 }
 .radiobtn{
   margin:2px;
+}
+.card{
+  width: 45%;
+  float: left;
+  margin:20px;
+ 
 }
