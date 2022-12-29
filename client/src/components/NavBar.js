@@ -12,7 +12,7 @@ export default function NavBar() {
   }
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-light" >
+      <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             <img
@@ -63,7 +63,7 @@ export default function NavBar() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Choose
+                  Select
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
@@ -92,12 +92,39 @@ export default function NavBar() {
           </div>
         </div>
         {isAuthenticated ? (
-          <Link className="nav-link" to="#" onClick={logoutuser}>
-            Logout
+          <Link className="nav-link" to="#">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                data-bs-display="static"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#" onClick={logoutuser}>
+                    Log Out
+                  </a>
+                </li>
+              </ul>
+            </div>
           </Link>
         ) : (
           <Link className="nav-link" to="/login">
-            Login
+            <i class="fa-sharp fa-solid fa-right-to-bracket">LogIn</i>
           </Link>
         )}
       </nav>

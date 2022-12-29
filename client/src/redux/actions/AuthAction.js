@@ -27,6 +27,9 @@ export const login = (data) => async (dispatch) => {
     if(error.response.status===500){
        dispatch(setAlert(error.response.statusText, "orange"));
     }
+    if (error.response.status === 404) {
+      dispatch(setAlert(error.response.data, "orange"));
+    }
      
     console.log(error);
   

@@ -7,6 +7,7 @@
   background-repeat: repeat-y;
   background-size: cover;
   height: 100vh;
+
 }
 .form {
   border-radius: 8px;
@@ -41,4 +42,12 @@
   float: left;
   margin:20px;
  
+}
+.buttons1{
+  width: 45%;
+  margin-left:2px;
+}
+.buttons2 {
+  width: 45%;
+  float: right;
 }
