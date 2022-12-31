@@ -6,6 +6,7 @@ import  setAuthToken  from "../../utils/setAuthToken";
 export const login = (data) => async (dispatch) => {
   //console.log(data);
   try {
+    dispatch({type:"LOAD_TRUE"})
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -18,8 +19,10 @@ export const login = (data) => async (dispatch) => {
       payload: res.data,
     });
      setAuthToken(res.data);
+    dispatch({ type: "LOAD_FALSE" });
     dispatch(setAlert("user logged in successfully","green"))
   } catch (error) {
+    dispatch({ type: "LOAD_FALSE" });
     dispatch({
       type: "LOGIN_FAIL",
       payload:error

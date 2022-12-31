@@ -13,17 +13,21 @@ import Family from "./components/Family";
 import Relatives from "./components/Relatives";
 import Others from "./components/Others";
 import setAuthToken from "./utils/setAuthToken"
+import Spinner from "./components/Spinner";
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
+  const loading =useSelector(state=>state.auth.loading)
+  console.log(loading,"from app component")
   return (
     <BrowserRouter>
       <div className="mystyle">
         <NavBar />
         <Alert />
+        {loading?<Spinner/>:
         <Routes>
           <Route
             path="/"
@@ -99,6 +103,7 @@ function App() {
             }
           />
         </Routes>
+      }
       </div>
     </BrowserRouter>
   );

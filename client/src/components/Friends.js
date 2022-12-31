@@ -1,8 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFriends, deleteBirthDay } from "../redux/actions/BirthDateAction";
+import {
+  fetchFriends,
+  deleteBirthDay,
+  loader,
+} from "../redux/actions/BirthDateAction";
 export default function Friends() {
   const birthdays = useSelector((state) => state.birthdate.birthDateFriends);
+  const loading = useSelector((state) => state.auth.loading);
   console.log(birthdays, "from friends component");
   const dispatch = useDispatch();
   useEffect(() => {
@@ -17,7 +22,7 @@ export default function Friends() {
           Yours Friends List to wish them on their birthday
         </h3>
       </div>
-      {birthdays.length > 0 ? (
+      {birthdays.length > 0 && !loading ? (
         birthdays.map((a) => (
           <div className="card" key={a._id}>
             <h5 className="card-header">

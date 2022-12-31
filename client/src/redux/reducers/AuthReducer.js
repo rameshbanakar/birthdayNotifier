@@ -1,21 +1,30 @@
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
-  loading: true,
+  loading: false,
   user: null,
   error:null
 };
 const Reducer = (state = initialState, action) => {
-  //console.log(action.type);
+  console.log(action.type);
   //console.log(action.payload);
   switch (action.type) {
+    case "LOAD_TRUE":
+      return {
+        ...state,
+        loading:true
+      }
+    case "LOAD_FALSE":
+      return {
+        ...state,
+        loading:false
+      }
     case "LOG_IN":
       localStorage.setItem("token", action.payload);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
-        loading: false,
       };
     case "SIGN_UP":
       localStorage.setItem("token", action.payload);
@@ -23,7 +32,6 @@ const Reducer = (state = initialState, action) => {
         ...state,
         
         isAuthenticated: true,
-        loading: false,
       };
       case "LOGIN_FAIL":
       case "SIGN_UP_FAIL":
@@ -33,7 +41,6 @@ const Reducer = (state = initialState, action) => {
           ...state,
           token:null,
           isAuthenticated:false,
-          loading:false,
           error:action.payload
         }
 
