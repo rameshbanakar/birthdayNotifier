@@ -1,6 +1,9 @@
 import React ,{useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchRelatives } from "../redux/actions/BirthDateAction";
+import {
+  fetchRelatives,
+  deleteBirthDay,
+} from "../redux/actions/BirthDateAction";
 export default function Relatives() {
   const birthdays = useSelector((state) => state.birthdate.birthDateRelatives);
   const dispatch = useDispatch();
@@ -44,7 +47,11 @@ export default function Relatives() {
                 <button class="btn btn-dark buttons1" type="button">
                   Update
                 </button>
-                <button class="btn btn-danger buttons2" type="button">
+                <button
+                  class="btn btn-danger buttons2"
+                  type="button"
+                  onClick={() => dispatch(deleteBirthDay(a._id))}
+                >
                   Delete
                 </button>
               </div>

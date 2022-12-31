@@ -1,5 +1,5 @@
 import React,{useEffect} from "react";
-import { fetchOthers } from "../redux/actions/BirthDateAction";
+import { fetchOthers, deleteBirthDay } from "../redux/actions/BirthDateAction";
 import { useDispatch, useSelector } from "react-redux";
 export default function Others() {
   const birthdays = useSelector((state) => state.birthdate.birthDateOthers);
@@ -44,7 +44,11 @@ export default function Others() {
                 <button class="btn btn-dark buttons1" type="button">
                   Update
                 </button>
-                <button class="btn btn-danger buttons2" type="button">
+                <button
+                  class="btn btn-danger buttons2"
+                  type="button"
+                  onClick={() => dispatch(deleteBirthDay(a._id))}
+                >
                   Delete
                 </button>
               </div>

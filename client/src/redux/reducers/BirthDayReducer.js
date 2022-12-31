@@ -5,7 +5,8 @@ const initialState = {
   birthDateOthers: [],
 };
 const Reducer = (state = initialState, action) => {
-  //console.log(action.type)
+  console.log(action.type)
+  console.log(action.payload)
   switch (action.type) {
     case "ADD_BIRTH_DATE_FAMILY":
       return {
@@ -47,12 +48,30 @@ const Reducer = (state = initialState, action) => {
         ...state,
         birthDateFamily: action.payload,
       };
+    case "DELETE":
+      return{
+        ...state,
+        birthDateFamily: state.birthDateFamily.filter(
+          (a) => a._id !== action.payload
+        ),
+        birthDateFriends: state.birthDateFriends.filter(
+          (a) => a._id !== action.payload
+        ),
+        birthDateRelatives: state.birthDateRelatives.filter(
+          (a) => a._id !== action.payload
+        ),
+        birthDateOthers: state.birthDateOthers.filter(
+          (a) => a._id !== action.payload
+        ),
+      };
 
+    
     default: {
       return {
         ...state,
-      };
+        
     }
   }
+ }
 };
 export default Reducer;

@@ -14,7 +14,7 @@ export default function Friends() {
     dispatch(fetchFriends());
     // eslint-disable-next-line
   }, []);
- 
+
   return (
     <>
       <div>
@@ -28,7 +28,7 @@ export default function Friends() {
             <h5 className="card-header">
               {a.firstName} {a.lastName}
             </h5>
-            <div className="card-body" style={{backgroundColor:"lightblue"}}>
+            <div className="card-body" style={{ backgroundColor: "lightblue" }}>
               <h5 className="card-title">
                 Date of Birth:--
                 {a.DOB.slice(8, 10) +
@@ -51,7 +51,11 @@ export default function Friends() {
                 <button class="btn btn-dark buttons1" type="button">
                   Update
                 </button>
-                <button class="btn btn-danger buttons2" type="button" onClick={()=>dispatch(deleteBirthDay(a._id))}>
+                <button
+                  class="btn btn-danger buttons2"
+                  type="button"
+                  onClick={() => dispatch(deleteBirthDay(a._id))}
+                >
                   Delete
                 </button>
               </div>

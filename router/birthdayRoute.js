@@ -9,6 +9,7 @@ const {
   getRelatives,
   getOthers,
   birthdays,
+  deleteBD,
 } = require("../controllers/birthdayController");
 
 //router.route("/addNewBd").post(addBd)
@@ -18,4 +19,5 @@ router.route("/fetch/family").get(auth, getFamily);
 router.route("/fetch/relatives").get(auth, getRelatives);
 router.route("/fetch/others").get(auth, getOthers);
 router.route("/fetch/todaybirths").get(auth, birthdays);
+router.route("/delete/:id").delete(auth, deleteBD);
 module.exports = router;

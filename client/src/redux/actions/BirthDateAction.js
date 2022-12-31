@@ -3,9 +3,9 @@ import { setAlert } from "./alertAction";
 import { setLoading, removeLoading } from "./LoadActions";
 export const addBirthday = (data) => async (dispatch) => {
   //console.log(data,"from action")
-  
+
   try {
-    dispatch(setLoading())
+    dispatch(setLoading());
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const addBirthday = (data) => async (dispatch) => {
         payload: res.data,
       });
     }
-     dispatch(removeLoading());
+    dispatch(removeLoading());
     dispatch(setAlert(res.data, "green"));
   } catch (error) {
     //console.log(error);
@@ -57,21 +57,19 @@ export const fetchFriends = () => async (dispatch) => {
     };
     const res = await axios.get("/api/birthday/fetch/friends", config);
     //console.log(res.data);
-    if(res){
-        dispatch({
-          type: "FETCH_BIRTH_DATE_FRIENDS",
-          payload: res.data,
-        });
+    if (res) {
+      dispatch({
+        type: "FETCH_BIRTH_DATE_FRIENDS",
+        payload: res.data,
+      });
     }
-    
-     //dispatch(removeLoading());
+
+    //dispatch(removeLoading());
     //console.log("diptach fecth       type: FETCH_BIRTH_DATE_FRIENDS,exucted")
-    
   } catch (error) {
     //console.log(error);
     dispatch(setAlert(error.response.statusText, "orange"));
   }
-  
 };
 export const fetchFamily = () => async (dispatch) => {
   //console.log(data,"from action")
@@ -84,15 +82,14 @@ export const fetchFamily = () => async (dispatch) => {
     };
     const res = await axios.get("/api/birthday/fetch/family", config);
     //console.log(res.data);
-     dispatch(removeLoading());
+    dispatch(removeLoading());
     dispatch({
       type: "FETCH_BIRTH_DATE_FAMILY",
       payload: res.data,
     });
-    
   } catch (error) {
     //console.log(error);
-   // dispatch(removeLoading());
+    // dispatch(removeLoading());
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
@@ -136,23 +133,22 @@ export const fetchOthers = () => async (dispatch) => {
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
-export const deleteBirthDay=(data)=>async dispatch=>{
-   try {
-     const config = {
-       headers: {
-         "Content-Type": "application/json",
-       },
-     };
-     const res = await axios.delete("/api/birthday/delete", data,config);
-     //console.log(res.data);
+export const deleteBirthDay = (data) => async (dispatch) => {
+  //console.log("delete birthday called",data)
+  try {
+    
+    const res = await axios.delete(
+      `/api/birthday/delete/${data}`
+    );
+    //console.log(res.data);
 
-     dispatch({
-       type: "DELETE",
-       payload: data,
-     });
-     dispatch(setAlert(res.data, "green"));
-   } catch (error) {
-     console.log(error);
-     dispatch(setAlert(error.response.statusText, "orange"));
-   }
-}
+    dispatch({
+      type: "DELETE",
+      payload: data,
+    });
+    dispatch(setAlert(res.data, "green"));
+  } catch (error) {
+    console.log(error);
+    dispatch(setAlert(error.response.statusText, "orange"));
+  }
+};
