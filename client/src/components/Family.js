@@ -21,7 +21,7 @@ export default function Family() {
             <h5 className="card-header">
               {a.firstName} {a.lastName}
             </h5>
-            <div className="card-body">
+            <div className="card-body" style={{ backgroundColor: "lightblue" }}>
               <h5 className="card-title">
                 Date of Birth:--
                 {a.DOB.slice(8, 10) +
@@ -42,7 +42,7 @@ export default function Family() {
               </p>
               <div>
                 <button class="btn btn-dark buttons1" type="button">
-                 Update
+                  Update
                 </button>
                 <button class="btn btn-danger buttons2" type="button">
                   Delete
