@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchFriends } from "../redux/actions/BirthDateAction";
+import { fetchFriends, deleteBirthDay } from "../redux/actions/BirthDateAction";
 export default function Friends() {
   const birthdays = useSelector((state) => state.birthdate.birthDateFriends);
   console.log(birthdays, "from friends component");
@@ -25,7 +25,12 @@ export default function Friends() {
             </h5>
             <div className="card-body">
               <h5 className="card-title">
-                Date of Birth:--{a.DOB.slice(0, 10)}
+                Date of Birth:--
+                {a.DOB.slice(8, 10) +
+                  "/" +
+                  a.DOB.slice(5, 7) +
+                  "/" +
+                  a.DOB.slice(0, 4)}
               </h5>
               <p className="card-text">
                 <i
@@ -38,10 +43,10 @@ export default function Friends() {
                 {a.phone}
               </p>
               <div>
-                <button class="btn btn-success buttons1" type="button">
-                  wish them
+                <button class="btn btn-dark buttons1" type="button">
+                  Update
                 </button>
-                <button class="btn btn-danger buttons2" type="button">
+                <button class="btn btn-danger buttons2" type="button" onClick={()=>dispatch(deleteBirthDay(a._id))}>
                   Delete
                 </button>
               </div>

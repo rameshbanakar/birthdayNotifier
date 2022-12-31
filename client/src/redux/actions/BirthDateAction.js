@@ -118,3 +118,23 @@ export const fetchOthers = () => async (dispatch) => {
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
+export const deleteBirthDay=(data)=>async dispatch=>{
+   try {
+     const config = {
+       headers: {
+         "Content-Type": "application/json",
+       },
+     };
+     const res = await axios.delete("/api/birthday/delete", data,config);
+     console.log(res.data);
+
+     dispatch({
+       type: "DELETE",
+       payload: data,
+     });
+     dispatch(setAlert(res.data, "green"));
+   } catch (error) {
+     console.log(error);
+     dispatch(setAlert(error.response.statusText, "orange"));
+   }
+}

@@ -38,3 +38,9 @@ exports.getOthers = async (req, res) => {
   });
   res.send(data);
 };
+
+exports.birthdays=async(req,res)=>{
+  const data=await Birthday.find({user:req.user._id})
+ 
+  res.send(data);
+}

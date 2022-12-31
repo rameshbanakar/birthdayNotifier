@@ -10,7 +10,7 @@ const birthDaySchema = new mongoose.Schema({
     type: String,
   },
   DOB: {
-    type: Date,
+    type: String,
   },
   phone: {
     type: String,

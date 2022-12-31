@@ -31,3 +31,10 @@ exports.signupUser = async(req, res) => {
   //console.log(token)
   res.send(token)
 };
+exports.getMe=async(req,res)=>{
+  const user=await User.find({"_id":req.user._id})
+  if(!user){
+    return res.status(404).send("Somthing went Wrong")
+  }
+  res.send(user)
+}
