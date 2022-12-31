@@ -1,16 +1,18 @@
 import axios from "axios";
 import { setAlert } from "./alertAction";
+import { setLoading, removeLoading } from "./LoadActions";
 export const addBirthday = (data) => async (dispatch) => {
   //console.log(data,"from action")
-   dispatch({ type: "LOAD_TRUE" });
+  
   try {
+    dispatch(setLoading())
     const config = {
       headers: {
         "Content-Type": "application/json",
       },
     };
     const res = await axios.post("/api/birthday/addNewBd", data, config);
-    console.log(res);
+    //console.log(res);
     if (res.data.relation === "Family Member") {
       dispatch({
         type: "ADD_BIRTH_DATE_FAMILY",
@@ -32,22 +34,22 @@ export const addBirthday = (data) => async (dispatch) => {
         payload: res.data,
       });
     }
-     dispatch({ type: "LOAD_FALSE" });
+     dispatch(removeLoading());
     dispatch(setAlert(res.data, "green"));
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
 export const loader = () => async (dispatch) => {
-  console.log("loader is running")
+  //console.log("loader is running")
   dispatch({ type: "LOAD_TRUE" });
 };
 export const fetchFriends = () => async (dispatch) => {
-  
+  //dispatch(setLoading());
   //console.log(data,"from action")
   try {
-    //dispatch({ type: "LOAD_TRUE" });
+    //;
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -55,23 +57,25 @@ export const fetchFriends = () => async (dispatch) => {
     };
     const res = await axios.get("/api/birthday/fetch/friends", config);
     //console.log(res.data);
+    if(res){
+        dispatch({
+          type: "FETCH_BIRTH_DATE_FRIENDS",
+          payload: res.data,
+        });
+    }
     
-    dispatch({
-      type: "FETCH_BIRTH_DATE_FRIENDS",
-      payload: res.data,
-    });
-    dispatch({ type: "LOAD_FALSE" });
-    console.log("diptach fecth       type: FETCH_BIRTH_DATE_FRIENDS,exucted")
+     //dispatch(removeLoading());
+    //console.log("diptach fecth       type: FETCH_BIRTH_DATE_FRIENDS,exucted")
     
   } catch (error) {
-    console.log(error);
-     dispatch({ type: "LOAD_FALSE" });
+    //console.log(error);
     dispatch(setAlert(error.response.statusText, "orange"));
   }
   
 };
 export const fetchFamily = () => async (dispatch) => {
   //console.log(data,"from action")
+  //dispatch(setLoading());
   try {
     const config = {
       headers: {
@@ -79,14 +83,16 @@ export const fetchFamily = () => async (dispatch) => {
       },
     };
     const res = await axios.get("/api/birthday/fetch/family", config);
-    console.log(res.data);
-
+    //console.log(res.data);
+     dispatch(removeLoading());
     dispatch({
       type: "FETCH_BIRTH_DATE_FAMILY",
       payload: res.data,
     });
+    
   } catch (error) {
-    console.log(error);
+    //console.log(error);
+   // dispatch(removeLoading());
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
@@ -99,14 +105,14 @@ export const fetchRelatives = () => async (dispatch) => {
       },
     };
     const res = await axios.get("/api/birthday/fetch/relatives", config);
-    console.log(res.data);
+    //console.log(res.data);
 
     dispatch({
       type: "FETCH_BIRTH_DATE_RELATIVES",
       payload: res.data,
     });
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     dispatch(setAlert(error.response.statusText, "orange"));
   }
 };
@@ -119,7 +125,7 @@ export const fetchOthers = () => async (dispatch) => {
       },
     };
     const res = await axios.get("/api/birthday/fetch/others", config);
-    console.log(res.data);
+    //console.log(res.data);
 
     dispatch({
       type: "FETCH_BIRTH_DATE_OTHERS",
@@ -138,7 +144,7 @@ export const deleteBirthDay=(data)=>async dispatch=>{
        },
      };
      const res = await axios.delete("/api/birthday/delete", data,config);
-     console.log(res.data);
+     //console.log(res.data);
 
      dispatch({
        type: "DELETE",

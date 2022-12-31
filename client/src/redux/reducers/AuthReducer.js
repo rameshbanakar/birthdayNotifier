@@ -1,24 +1,14 @@
 const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: false,
-  loading: false,
   user: null,
   error:null
 };
 const Reducer = (state = initialState, action) => {
-  console.log(action.type);
+  //console.log(action.type);
   //console.log(action.payload);
   switch (action.type) {
-    case "LOAD_TRUE":
-      return {
-        ...state,
-        loading:true
-      }
-    case "LOAD_FALSE":
-      return {
-        ...state,
-        loading:false
-      }
+    
     case "LOG_IN":
       localStorage.setItem("token", action.payload);
       return {

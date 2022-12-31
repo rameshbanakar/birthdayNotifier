@@ -8,7 +8,7 @@ import {
 export default function Friends() {
   const birthdays = useSelector((state) => state.birthdate.birthDateFriends);
   const loading = useSelector((state) => state.auth.loading);
-  console.log(birthdays, "from friends component");
+  //console.log(birthdays, "from friends component");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFriends());

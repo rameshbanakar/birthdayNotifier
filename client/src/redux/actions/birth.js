@@ -7,7 +7,7 @@ export const birthdays=()=>async(dispatch)=>{
       },
     };
     const res = await axios.get("/api/birthday/fetch/todaybirths", config);
-    console.log(res)
+    //console.log(res)
     dispatch({
       type: "BIRTHS",
       payload: res.data,

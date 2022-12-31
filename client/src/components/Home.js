@@ -11,9 +11,9 @@ export default function Home() {
   // const ignoreMe=(data)=>{
   //   dispatch(ignore(data));
   // }
-  const hello=(a)=>{
-    console.log("hello "+a)
-  }
+  // const hello=(a)=>{
+  //   console.log("hello "+a)
+  // }
   return (
     <>
       <div>

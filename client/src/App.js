@@ -20,8 +20,8 @@ if (localStorage.token) {
 }
 function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  const loading =useSelector(state=>state.auth.loading)
-  console.log(loading,"from app component")
+  const loading = useSelector((state) => state.loader.loader);
+  //console.log(loading,"from app component")
   return (
     <BrowserRouter>
       <div className="mystyle">

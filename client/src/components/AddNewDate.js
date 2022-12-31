@@ -22,13 +22,13 @@ export default function AddNewDate() {
     if(data.relation==null){
        dispatch(setAlert("select the type of relation","yellow"));
     }else{
-      console.log(data)
+      //console.log(data)
       dispatch(addBirthday(data));
     }
     
   };
   useEffect(() => {
-    console.log(birthDate);
+    //console.log(birthDate);
   }, [birthDate]);
   const cancel = () => {
     setData({
