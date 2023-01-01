@@ -22,7 +22,7 @@ export const login = (data) => async (dispatch) => {
     dispatch(removeLoading())
     dispatch(setAlert("user logged in successfully","green"))
   } catch (error) {
-   
+    dispatch(removeLoading());
     dispatch({
       type: "LOGIN_FAIL",
       payload:error
@@ -50,6 +50,7 @@ export const logout = () => async (dispatch) => {
 export const signup = (data) => async (dispatch) => {
   //console.log(data);
   try {
+    dispatch(setLoading());
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -58,6 +59,7 @@ export const signup = (data) => async (dispatch) => {
     const res = await axios.post("/api/auth/signup", data, config);
     //console.log(res)
     //dispatch(setAlert("User Register Successfully", "green"))
+     dispatch(removeLoading());
     dispatch({
           type: "SIGN_UP",
           payload: res.data,
@@ -66,6 +68,7 @@ export const signup = (data) => async (dispatch) => {
     //loadUser(res.data);
     dispatch(setAlert("User Signedup successfully", "green"));
   } catch (error) {
+     dispatch(removeLoading());
     dispatch({
       type: "SIGN_UP_FAIL",
       payload:error.response.data

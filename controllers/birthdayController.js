@@ -39,14 +39,14 @@ exports.getOthers = async (req, res) => {
   res.send(data);
 };
 
-exports.birthdays=async(req,res)=>{
-  const data=await Birthday.find({user:req.user._id})
- 
+exports.birthdays = async (req, res) => {
+  const data = await Birthday.find({ user: req.user._id });
+
   res.send(data);
-}
+};
 exports.deleteBD = async (req, res) => {
   //console.log(req.params.id,"delete called in controller");
   const data = await Birthday.findByIdAndDelete(req.params.id);
   //console.log(data)
-  res.send("deleted succesfully")
-}
+  res.send("deleted succesfully");
+};

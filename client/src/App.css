@@ -33,6 +33,9 @@
   .card{
     width:85% !important;
   }
+  .spinner {
+    margin-top: 80% !important;
+  }
 }
 .radiobtn{
   margin:2px;
@@ -50,4 +53,7 @@
 .buttons2 {
   width: 45%;
   float: right;
+}
+.spinner{
+  margin-top: 25%;
 }

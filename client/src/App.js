@@ -27,83 +27,89 @@ function App() {
       <div className="mystyle">
         <NavBar />
         <Alert />
-        {loading?<Spinner/>:
-        <Routes>
-          <Route
-            path="/"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <Home />
-              )
-            }
-          />
-          <Route path="/about" element={<About />} />
-          <Route
-            path="/login"
-            element={
-              isAuthenticated ? <Navigate to="/" replace={true} /> : <Login />
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              isAuthenticated ? <Navigate to="/" replace={true} /> : <Signup />
-            }
-          />
-          <Route
-            path="/newDate"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <AddNewDate />
-              )
-            }
-          />
-          <Route
-            path="/friends"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <Friends />
-              )
-            }
-          />
-          <Route
-            path="/family"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <Family />
-              )
-            }
-          />
-          <Route
-            path="/relatives"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <Relatives />
-              )
-            }
-          />
-          <Route
-            path="/others"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" replace={true} />
-              ) : (
-                <Others />
-              )
-            }
-          />
-        </Routes>
-      }
+        {loading ? (
+          <Spinner />
+        ) : (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <Home />
+                )
+              }
+            />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/login"
+              element={
+                isAuthenticated ? <Navigate to="/" replace={true} /> : <Login />
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                isAuthenticated ? (
+                  <Navigate to="/" replace={true} />
+                ) : (
+                  <Signup />
+                )
+              }
+            />
+            <Route
+              path="/newDate"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <AddNewDate />
+                )
+              }
+            />
+            <Route
+              path="/friends"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <Friends />
+                )
+              }
+            />
+            <Route
+              path="/family"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <Family />
+                )
+              }
+            />
+            <Route
+              path="/relatives"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <Relatives />
+                )
+              }
+            />
+            <Route
+              path="/others"
+              element={
+                !isAuthenticated ? (
+                  <Navigate to="/login" replace={true} />
+                ) : (
+                  <Others />
+                )
+              }
+            />
+          </Routes>
+        )}
       </div>
     </BrowserRouter>
   );
