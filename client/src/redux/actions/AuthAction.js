@@ -12,7 +12,11 @@ export const login = (data) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.post("/api/auth/login", data, config);
+    const res = await axios.post(
+      "https://birthdaynotifier.onrender.com/api/auth/login",
+      data,
+      config
+    );
     //console.log(res)
     dispatch({
       type: "LOG_IN",
@@ -56,7 +60,11 @@ export const signup = (data) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.post("/api/auth/signup", data, config);
+    const res = await axios.post(
+      "https://birthdaynotifier.onrender.com/api/auth/signup",
+      data,
+      config
+    );
     //console.log(res)
     //dispatch(setAlert("User Register Successfully", "green"))
      dispatch(removeLoading());
