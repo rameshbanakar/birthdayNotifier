@@ -58,6 +58,7 @@ export const signup = (data) => async (dispatch) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
+        
       },
     };
     const res = await axios.post(

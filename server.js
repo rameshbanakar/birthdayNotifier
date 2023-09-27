@@ -25,7 +25,12 @@ app.use(helmet());
 //cross site scriptinng
 app.use(xss());
 app.use(hpp());
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use("/api/auth", authRoute);
 app.use("/api/birthday", birthdayRoute);
 app.listen(5000, () => console.log("server started@localhost 5000"));
