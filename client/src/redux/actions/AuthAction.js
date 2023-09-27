@@ -65,7 +65,7 @@ export const signup = (data) => async (dispatch) => {
       data,
       config
     );
-    //console.log(res)
+    console.log(res)
     //dispatch(setAlert("User Register Successfully", "green"))
      dispatch(removeLoading());
     dispatch({

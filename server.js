@@ -14,7 +14,7 @@ const morgan = require("morgan");
 dotenv.config({ path: "./config/config.env" });
 connectDb();
 const app = express();
-app.use(cors());
+
 app.use(cookieParser());
 app.use(express.json());
 if (process.env.NODE_ENV === "development") {
@@ -25,6 +25,7 @@ app.use(helmet());
 //cross site scriptinng
 app.use(xss());
 app.use(hpp());
+app.use(cors());
 app.use("/api/auth", authRoute);
 app.use("/api/birthday", birthdayRoute);
 app.listen(5000, () => console.log("server started@localhost 5000"));
