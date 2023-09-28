@@ -6,7 +6,7 @@ import Login from "./components/Login";
 import AddNewDate from "./components/AddNewDate";
 import "./App.css";
 import Signup from "./components/Signup";
-import { useSelector,} from "react-redux";
+import { useSelector,useDispatch} from "react-redux";
 import Alert from "./components/Alert";
 import Friends from "./components/Friends";
 import Family from "./components/Family";
@@ -15,12 +15,15 @@ import Others from "./components/Others";
 import setAuthToken from "./utils/setAuthToken"
 import Spinner from "./components/Spinner";
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
+
 function App() {
+  const dispatch=useDispatch()
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const loading = useSelector((state) => state.loader.loader);
+  if (localStorage.token) {
+    setAuthToken(localStorage.token);
+    dispatch({ type: "SIGN_UP", payload: localStorage.token });
+  }
   //console.log(loading,"from app component")
   return (
     <BrowserRouter>
