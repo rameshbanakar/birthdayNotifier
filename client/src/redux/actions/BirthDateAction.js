@@ -11,7 +11,11 @@ export const addBirthday = (data) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.post("/api/birthday/addNewBd", data, config);
+    const res = await axios.post(
+      "https://birthdaynotifier.onrender.com/api/birthday/addNewBd",
+      data,
+      config
+    );
     //console.log(res);
     if (res.data.relation === "Family Member") {
       dispatch({
@@ -55,7 +59,10 @@ export const fetchFriends = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.get("/api/birthday/fetch/friends", config);
+    const res = await axios.get(
+      "https://birthdaynotifier.onrender.com/api/birthday/fetch/friends",
+      config
+    );
     //console.log(res.data);
     if (res) {
       dispatch({
@@ -80,7 +87,10 @@ export const fetchFamily = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.get("/api/birthday/fetch/family", config);
+    const res = await axios.get(
+      "https://birthdaynotifier.onrender.com/api/birthday/fetch/family",
+      config
+    );
     //console.log(res.data);
     dispatch(removeLoading());
     dispatch({
@@ -101,7 +111,10 @@ export const fetchRelatives = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.get("/api/birthday/fetch/relatives", config);
+    const res = await axios.get(
+      "https://birthdaynotifier.onrender.com/api/birthday/fetch/relatives",
+      config
+    );
     //console.log(res.data);
 
     dispatch({
@@ -121,7 +134,10 @@ export const fetchOthers = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.get("/api/birthday/fetch/others", config);
+    const res = await axios.get(
+      "https://birthdaynotifier.onrender.com/api/birthday/fetch/others",
+      config
+    );
     //console.log(res.data);
 
     dispatch({
@@ -138,7 +154,7 @@ export const deleteBirthDay = (data) => async (dispatch) => {
   try {
     
     const res = await axios.delete(
-      `/api/birthday/delete/${data}`
+      `https://birthdaynotifier.onrender.com/api/birthday/delete/${data}`
     );
     //console.log(res.data);
 

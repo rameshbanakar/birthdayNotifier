@@ -6,7 +6,10 @@ export const birthdays=()=>async(dispatch)=>{
         "Content-Type": "application/json",
       },
     };
-    const res = await axios.get("/api/birthday/fetch/todaybirths", config);
+    const res = await axios.get(
+      "https://birthdaynotifier.onrender.com/api/birthday/fetch/todaybirths",
+      config
+    );
     //console.log(res)
     dispatch({
       type: "BIRTHS",
